@@ -41,8 +41,8 @@ class FormValidation extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'bail|required|max:1000', //Check validtion for first_name
-            'last_name' => 'bail|required||max:1000', //Check validtion for last_name
+            'first_name' => 'bail|required|regex:/^[\pL\s\-]+$/u|max:100', //Check validtion for first_name
+            'last_name' => 'bail|required||regex:/^[\pL\s\-]+$/u|max:100', //Check validtion for last_name
             'email'=> 'bail|required|email', //Check validtion for email
             'phone_number'=> 'bail|required|numeric|digits:10', //Check validtion for phone_number
             'date_of_birth' => 'nullable|date_format:Y-m-d|before:tomorrow', //Check validtion for date_of_birth

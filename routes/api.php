@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // check Form validation
-Route::post('form-validation',[App\Http\Controllers\FormController::class , 'store']);
+Route::post('create-user',[App\Http\Controllers\FormController::class , 'store'])->middleware('throttle:60,1');
